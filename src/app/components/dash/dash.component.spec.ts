@@ -23,7 +23,7 @@ describe('DashComponent', () => {
         MatCardModule,
         MatGridListModule,
         MatIconModule,
-        MatMenuModule,
+        MatMenuModule
       ]
     }).compileComponents();
   }));

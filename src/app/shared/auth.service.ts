@@ -11,7 +11,7 @@ export class User {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthService {
   constructor(private http: HttpClient) {}

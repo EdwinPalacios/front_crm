@@ -1,0 +1,22 @@
+.page-login:before {
+	background-image: url('../img/space-desk-workspace-coworking.jpg');
+}
+.page-login form {
+	width: 340px;
+	margin: 30px 0;
+}
+.page-login form a {
+	margin-left: 20px;
+}
+.page-login a {
+	color: #9fa8da;
+}
+.page-content {
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, .4);
+}
+@media (max-width:767px) {
+	.page-login form {
+		width: auto;
+	}
+}

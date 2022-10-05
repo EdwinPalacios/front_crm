@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
   registerForm: FormGroup;
@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
       name: [''],
       email: [''],
       password: [''],
-      password_confirmation: [''],
+      password_confirmation: ['']
     });
   }
 

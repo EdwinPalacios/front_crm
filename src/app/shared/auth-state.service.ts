@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { TokenService } from '../shared/token.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class AuthStateService {
   private userState = new BehaviorSubject<boolean>(this.token.isLoggedIn()!);

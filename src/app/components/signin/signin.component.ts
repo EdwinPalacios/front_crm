@@ -8,7 +8,7 @@ import { TokenService } from 'src/app/shared/token.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
+  styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent implements OnInit {
   loginForm: FormGroup;
@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit {
   ) {
     this.loginForm = this.fb.group({
       email: [],
-      password: [],
+      password: []
     });
   }
 
