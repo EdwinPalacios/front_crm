@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthStateService } from 'src/app/shared/auth-state.service';
-import { AuthService } from 'src/app/shared/auth.service';
-import { TokenService } from 'src/app/shared/token.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthStateService } from 'src/app/services/shared/auth-state.service';
+import { TokenService } from 'src/app/services/shared/token.service';
 
 @Component({
   selector: 'app-signin',
@@ -22,12 +22,19 @@ export class SigninComponent implements OnInit {
     private authState: AuthStateService
   ) {
     this.loginForm = this.fb.group({
-      email: [],
-      password: []
+      email: ['', [Validators.email, Validators.max(500)]],
+      password: ['', [Validators.required]]
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authState.userAuthState.subscribe((val) => {
+      console.log(`Logged --> ${val}`);
+      if (val) {
+        this.router.navigate(['dashboard', 'profile']);
+      }
+    });
+  }
 
   onSubmit() {
     this.authService.signin(this.loginForm.value).subscribe(
@@ -40,13 +47,13 @@ export class SigninComponent implements OnInit {
       () => {
         this.authState.setAuthState(true);
         this.loginForm.reset();
-        this.router.navigate(['profile']);
+        this.router.navigate(['dashboard', 'profile']);
       }
     );
   }
 
   // Handle response
   responseHandler(data: any) {
-    this.token.handleData(data.access_token);
+    this.token.handleData(data.authorization.token);
   }
 }
